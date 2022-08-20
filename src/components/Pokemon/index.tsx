@@ -1,20 +1,27 @@
 import React from "react";
 import { BsHeart, BsHeartFill } from "react-icons/bs"
 
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
-import { usePokeSelect } from "../../redux/slices/pokeSlice";
+import { setPokemonFavorite, usePokeSelect } from "../../redux/slices/pokeSlice";
 import { Pokemon } from "../../types";
 
 interface FavoriteButtonProps {
 	isFavorite: boolean;
+	pokemonID: number;
 }
 
 interface PokemonItemProps extends Pokemon {}
 
-function FavoriteButton({ isFavorite }: FavoriteButtonProps) {
+function FavoriteButton({ isFavorite, ...props }: FavoriteButtonProps) {
+	const dispatch = useAppDispatch()
+
+	const handleClick = (id: typeof props.pokemonID) => {
+		dispatch(setPokemonFavorite({id, isFavorite: !isFavorite}))
+	}
+
 	return (
-		<button>
+		<button onClick={() => handleClick(props.pokemonID)}>
 			<i>{isFavorite ? <BsHeartFill /> : <BsHeart />}</i>
 		</button>
 	)
@@ -28,7 +35,7 @@ export function PokemonItem(props: PokemonItemProps) {
 				{props.name}
 			</h1>
 			<span>
-				<FavoriteButton isFavorite={false} />
+				<FavoriteButton pokemonID={props.id} isFavorite={props.isFavorite} />
 			</span>
 			<img src={props.sprites.front_default} />
 		</div>
@@ -36,7 +43,7 @@ export function PokemonItem(props: PokemonItemProps) {
 }
 
 export default React.memo(function PokemonList() {
-	const {pokemons} = useAppSelector(usePokeSelect);
+	const { pokemons } = useAppSelector(usePokeSelect)
 
 	return (
 		<>
