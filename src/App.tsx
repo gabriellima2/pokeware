@@ -16,14 +16,14 @@ function App() {
 
   return (
 		<>
-			<Title>Bem vindo a PokeTest</Title>
+			<Title>Bem Vindo à PokeJest!</Title>
 
-			<main>
+			<main className="main-index">
 				<section>
 					<Search />
 				</section>
 
-				<section>
+				<section aria-atomic="true" aria-live="polite">
 					<PokemonList />
 				</section>
 			</main>
