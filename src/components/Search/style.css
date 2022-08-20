@@ -1,13 +1,13 @@
 .search-input {
 	border: none;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 
-	padding: 15px 14px;
+	padding: 15px 20px;
 
 	color: var(--font-color);
 	font-family: var(--font);
-	font-size: 1.1rem;
+	font-size: 1rem;
 
 	position: relative;
 
@@ -15,3 +15,18 @@
 	background-color: #2c2c2c;
 }
 
+.search-input::placeholder {
+	font-size: 0.9rem;
+}
+
+@media screen and (max-width: 540px) {
+	.search-input {
+		padding: 12px 15px;
+		font-size: 0.9rem;
+	}
+
+
+	.search-input::placeholder {
+		font-size: 0.8rem;
+	}
+}
