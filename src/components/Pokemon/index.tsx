@@ -29,7 +29,7 @@ function FavoriteButton({ isFavorite, ...props }: FavoriteButtonProps) {
 	)
 }
 
-export function PokemonItem(props: PokemonItemProps) {
+function PokemonItem(props: PokemonItemProps) {
 	return (
 		<li className="poke-list--item">
 			<section className="text-container">
