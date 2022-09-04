@@ -32,18 +32,16 @@ function FavoriteButton({ isFavorite, ...props }: FavoriteButtonProps) {
 function PokemonItem(props: PokemonItemProps) {
 	return (
 		<li className="poke-list--item">
-			<section className="text-container">
-				<h1 className="text-container--title">
-					<span>#{props.id}</span>
-					{props.name}
-				</h1>
-				<FavoriteButton pokemonID={props.id} isFavorite={props.isFavorite} />
-			</section>
+			<h1 className="text-container--title">
+				<span>#{props.id}</span>
+				{props.name}
+			</h1>
 			<img
 				src={props.sprites.front_default}
 				alt={`Pokemon ${props.name}`}
 				className="poke-list--item--image"
 			/>
+			<FavoriteButton pokemonID={props.id} isFavorite={props.isFavorite} />
 		</li>
 	)
 }

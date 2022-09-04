@@ -1,60 +1,50 @@
 .poke-list {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 20px;
+	gap: 30px;
 }
 
 .poke-list--item {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 
-	padding: 15px 0px;
+	position: relative;
 
-	border: 1px solid #202020;
+	border: 1px solid #ffffff13;
 	border-radius: 5px;
+	padding: 10px 5px;
 }
 
 .text-container--title {
-	font-size: 1.2rem;
 	text-transform: uppercase;
 	text-align: center;
-}
-
-.text-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-
-	padding: 5px;
+	font-size: 1rem;
 }
 
 .text-container--title > span {
-	margin-right: 8px;
+	margin-right: 10px;
 }
 
 .poke-list--item--image {
-	width: 110px;
-	height: 110px;
+	align-self: center;
 }
 
 .favorite-button {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+
+	color: var(--font-color);
+
 	background: none;
 	border: none;
-
-	padding: 2px;
-
-	font-size: 1.5rem;
-	color: #f1f1f1;
 
 	cursor: pointer;
 }
 
 .favorite-button:hover {
-	transition: color 0.4s ease;
 	color: #d63333;
+	transition: color 0.2s ease;
 }
 
 @media screen and (max-width: 780px) {
