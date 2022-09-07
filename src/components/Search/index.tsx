@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { InputChangeEvent } from "../../types";
 
 import "./style.css"
 
-export function Search() {
-	const [searchValue, setSearchValue] = useState("")
+interface SearchProps {
+	value: string;
+	handleChange: (e: InputChangeEvent) => void
+}
 
+export function Search({ value, handleChange }: SearchProps) {
 	return (
 		<>
 			<label>
@@ -14,8 +17,8 @@ export function Search() {
 				id="search"
 				className="search-input"
 				placeholder="Busque por Pokémons"
-				value={searchValue}
-				onChange={(e) => setSearchValue(e.target.value)}
+				value={value}
+				onChange={handleChange}
 			/>
 			</label>
 		</>

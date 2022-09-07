@@ -1,9 +1,9 @@
 import React from "react";
 import { BsHeart, BsHeartFill } from "react-icons/bs"
 
-import { useAppDispatch, useAppSelector } from "../../hooks/redux"
+import { setPokemonFavorite } from "../../redux/slices/pokeSlice"
+import { useAppDispatch } from "../../hooks/redux"
 
-import { setPokemonFavorite, usePokeSelect } from "../../redux/slices/pokeSlice"
 import { Pokemon } from "../../types"
 
 import "./style.css"
@@ -14,6 +14,10 @@ interface FavoriteButtonProps {
 }
 
 interface PokemonItemProps extends Pokemon {}
+
+interface PokemonListProps {
+	pokemons: Pokemon[];
+}
 
 function FavoriteButton({ isFavorite, ...props }: FavoriteButtonProps) {
 	const dispatch = useAppDispatch()
@@ -46,9 +50,7 @@ function PokemonItem(props: PokemonItemProps) {
 	)
 }
 
-export default React.memo(function PokemonList() {
-	const { pokemons } = useAppSelector(usePokeSelect)
-
+export default React.memo(function PokemonList({ pokemons }: PokemonListProps) {
 	return (
 		<ul className="poke-list">
 			{pokemons.map((pokemon) => (

@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react"
+
 import { PokeResponse } from "../utils/pokeFetch";
 
 export interface Pokemon extends Pick<PokeResponse, "name"> {
@@ -12,3 +14,5 @@ export interface DefaultActionType<T> {
 	type: string;
 	payload: T;
 }
+
+export type InputChangeEvent = ChangeEvent<HTMLInputElement>
